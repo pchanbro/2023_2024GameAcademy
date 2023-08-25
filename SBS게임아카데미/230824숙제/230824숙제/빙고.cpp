@@ -74,6 +74,9 @@ bool changeBoard(int _input, int myBoard[][5], int comBoard[][5])
 				isChange = true;
 			}
 
+			// 이 부분을 myBoard와 같이 한 포문에 쓰기보다는 새로운 포문을 만들어 구분을 해주는게 좋다.
+			// 왜냐하면 myBoard나 comBoard중 하나만 바꾸려고 했는데 둘 다 바뀌는 오류가 생길 수 있기 때문
+			// 포문 하나당 하나의 기능만 넣어주는게 좋다.
 			if (comBoard[i][j] == _input)
 			{
 				comBoard[i][j] = '#';
