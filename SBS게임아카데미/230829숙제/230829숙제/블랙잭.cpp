@@ -27,7 +27,7 @@ enum eCardShape
 
 enum eHitStand
 {
-	HIT,
+	HIT = 1,
 	STAND,
 	END
 };
@@ -110,7 +110,7 @@ void GetCard(int hand[], int& cardNum)
 	_deckCardNum++;
 }
 
-int AddCard(int hand[] , int& cardNum)
+int AddTotal(int hand[] , int cardNum)
 {
 	int temp = 0;
 	for (int i = 0; i < cardNum; i++)
@@ -128,24 +128,32 @@ int AddCard(int hand[] , int& cardNum)
 		case 13:
 			temp += 10;
 			break;
-		dafault:
-			temp += (hand[i] % 13 + 1);
+		default:
+			temp = temp + (hand[i] % 13 + 1);
 			break;
 		}
+		cout << i << "번 째 카드 더하면" << temp << endl;
 	}
 	// A를 내 상황에 맞게 1 혹은 11로 취급
 	// 카드중 A가 있을 때 A를 11로 취급해도 21 미만이면 10을 추가로 더해준다.(위에서 1은 이미 더함)
-	if (temp < 11)
+	for (int i = 0; i < cardNum; i++)
 	{
-		temp += 10;
+		if ((hand[i] % 13 + 1) == 1)
+		{
+			if (temp < 11)
+			{
+				temp += 10;
+			}
+		}
 	}
+	
 
 	return temp;
 }
 
 void IsBurst()
 {
-	_myTotal = AddCard(_myHand, _myCardNum);
+	_myTotal = AddTotal(_myHand, _myCardNum);
 
 	// 버스트되면 게임 결과가 결정되도록 한다.
 	if (_myTotal > 20)
@@ -159,7 +167,7 @@ void ChooseHitStand()
 {
 	// 플레이어의 히트, 스탠드 선택
 	int choice;
-	cout << "히트 스탠드를 결정하세요(히트 : 0 , 스탠드 : 1) : ";
+	cout << "히트 스탠드를 결정하세요(히트 : 1 , 스탠드 : 2) : ";
 	cin >> choice;
 
 	switch (choice)
@@ -177,7 +185,7 @@ void ChooseHitStand()
 			PrintCard(_myHand[i]);
 		}
 		cout << endl;
-		
+
 		// 버스트 여부 확인
 		IsBurst();
 		
@@ -197,7 +205,7 @@ void ChooseHitStand()
 // 컴퓨터 카드 추가
 void AddComCard()
 {
-	_comTotal = AddCard(_comHand, _comCardNum);
+	_comTotal = AddTotal(_comHand, _comCardNum);
 
 	// 컴퓨터 패의 합이 17 미만인 경우 히트하여 카드 추가
 	if (_comTotal < 17)
@@ -291,6 +299,8 @@ void main()
 		_standChoice = false;
 		_burst = false;
 		_comConclusion = false;
+		_myTotal = 0;
+		_comTotal = 0;
 
 		// 플레이어 카드 두장 받기
 		GetCard(_myHand, _myCardNum); //_myCardNum을 받는 이유는 GetCard 안에서 증가시켜주는 기능을 넣기 위함
@@ -316,7 +326,6 @@ void main()
 		{
 			// 히트 스탠드 선택
 			ChooseHitStand();
-			IsBurst();
 		}
 
 		cout << "내 카드 : ";
@@ -336,13 +345,15 @@ void main()
 			AddComCard();
 		}
 
-		cout << "최종 내 카드 : ";
+		cout << "플레이어 최종 카드 : ";
 		OpenCard(_myHand, _myCardNum);
+		_myTotal = AddTotal(_myHand, _myCardNum);
+		cout << "플레이어 최종 숫자 : " << _myTotal << endl;
 
-
-		cout << "최종 컴퓨터 카드 : ";
+		cout << "컴퓨터 최종 카드 : ";
 		OpenCard(_comHand, _comCardNum);
-
+		_comTotal = AddTotal(_comHand, _comCardNum);
+		cout << "컴퓨터 최종 숫자 : " << _comTotal << endl;
 
 		if (_burst)
 		{
