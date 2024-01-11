@@ -1,0 +1,5 @@
+a,b,c,d = map(float,input("4개 과목 점수 입력 >>>").split())
+average = round((a+b+c+d)/4,2)
+print("평균은", end = "")
+print(average, end = "")
+print("점 입니다.")
