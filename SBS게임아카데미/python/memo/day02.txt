@@ -1,0 +1,379 @@
+day02
+
+1. 구글 코랩
+https://colab.google/
+-> Open Colab 선택 -> "새 노트 " 선택
+
+.py -> 파이썬 스크립트 확장자
+.ipynb -> 파이썬 스크립트 + 마크다운 확장자
+
+실행할 때에는 Ctrl + Enter
+실행 + 다음 코드 셀을 만드려면 Shift + Enter
+
+구글 코랩은
+쉘 모드의 바로 바로 실행  가능한 장점
+스크립트 모드의 여러줄 실행 장점
+
+colab에서 input 함수를 사용하면 입력을 위한 텍스트 박스가 생성
+
+
+
+
+2. 논리형
+
+True, False
+
+비교 연산자
+>, <, >=, <=, ==, !=
+is, in not 연산자
+
+is는 값을 비교할 뿐만 아니라 객체를 비교한다
+객체 = 자료형
+type(1) ->  <class 'int'> 정수
+type(1.0) -> <class 'float'> 실수
+type(1+0j) -> <class 'complex'> 복소수
+
+is 연산자는 각 데이터의 id를 비교해서 True, False
+
+논리 연산자
+
+논리적인 연산 
+and, or, not
+
+양항 연산자
+
+and
+앞 and 뒤
+앞과 뒤에 True, False, (3>1)
+True and True
+and 연산은 양 항이 모두 True이어야 True를 반환한다
+나머지의 케이스는 False 반환
+
+or
+ot 연산은 양 항 중 하나라도 True 이면 True를 반환한다
+양 항 모두 False이면 False를 반환
+
+단항 연산자 
+not
+뒤에 True, False, (3>1)
+
+연산자 우선순위에 따라서 결정
+not -> and -> or
+
+bool() 함수
+
+bool(정수) -> 0이면 False, 0이 아닌 모든 수 True
+bool(실수) -> 0.0이면 False, 나머지 모든 수 True
+bool(복소수) -> 0+0j이면 False, 나머지 모든 수 True
+bool(문자열) -> 빈 문자열 False, 나머지 모든 문자 True
+
+논리 연산자는 무조건 논리형이 값으로 나오지 않음
+-> 단락 평가 : 마지막으로 연산한 것의 자료형
+
+print(True and "False")
+-> False
+print(True and "Hello")
+-> Hello
+print(False and "Hello")
+-> False
+print("Python" and True)
+-> True
+print("Python" and False)
+-> False
+print(False and "Python")
+-> False
+print(0 and "Python")
+-> 0
+
+print(True or "Python")
+-> True
+print("Python" or True)
+->Python
+print(0 or True)
+->True
+print(0 or False)
+->False
+
+3개의 점수를 입력받고 
+3개의 점수 중 한 과목이라도 50점 미만이면 False
+
+
+
+3. 문자열 (string)
+
+문자 + 배열 -> 문자들의 나열
+
+문자열은 "(큰따옴표), '(작은따옴표) 1쌍으로 구별한다
+따옴표 3쌍짜리 문자열은 여러 줄로 된 문자열을 사용할 수 있다
+
+작은따옴표
+" 안에 '
+' 안에 \'
+""" 안에 '
+
+큰따옴표
+' 안에 "
+"안에 \"
+"""안에 "
+
+1) 특정 값이 시퀀스 안에 있나 확인하기
+in 연산자
+
+a = "Hello"
+'l' in a -> True
+'L' in a -> False
+
+not in 연산자 -> 없는지 확인하기
+
+2) 연결하기
++ 연산자
+
+3) 반복하기
+* 연산자
+뒤에 나오는 연산자는 무조건 양의 정수
+음의 정수, 0을 곱하면 빈 문자열
+실수를 곱하면
+
+4) 길이
+length를 줄인 len() 함수
+
+a = "Hello"
+print(len(a))
+-> 5
+
+b = "Hello World"
+print(len(b))
+-> 11
+
+c = "Hello\n"
+print(len(c))
+-> 6
+
+d = "Hello\\"
+print(len(d))
+-> 6
+
+e = """Hello\\"""
+print(e)
+print(len(e))
+->Hello\
+6
+
+f = """Hel""lo"""
+print(f)
+print(len(f))
+-> Hel""lo
+7
+
+5) 인덱싱 (indexing)
+문자열 가운데 특정 요소에 접근하기
+a = "Hello"
+a라는 문자열 변수의 2번째 문자가 뭔지 알려면
+print(a[1])
+print(a._getitem_(1))
+
+컴퓨터는 숫자를 셀 때 첫번째 것을 0부터 셈
+
+인덱스 번호가 문자열의 길이 이상이면 에러가 발생
+
+인덱스 번호가 음수이면 거꾸로 가져옴
+H   e   l    l   o
+0   1   2   3   4 
+-5  -4  -3  -2  -1
+
+6) 슬라이싱 (slicing)
+문자열 가운데 특정 요소들에 접근하기
+
+슬라이싱 -> 2개의 수가 필요
+시작 인덱스 번호, 끝 인덱스 번호가 필요
+
+print(a[3:6]) -> 3번 문자부터 5번 문자까지 출력
+-> 끝 인덱스 번호 -1 까지 가져옴
+
+print(a[:4])
+-> 처음부터 3번 인덱스까지 가져온다
+
+print(a[7:])
+-> 7번부터 끝까지 가져온다
+
+print(a[:])
+-> 처음부터 끝까지 가져온다
+
+슬라이싱 -> 3개의 수를 넣는 사용
+시작 인덱스 번호, 끝 인덱스 번호 +1, 단계(step)
+
+print(a[3:8:2])
+-> 3번부터 7번 중에서 2개씩 띄워서 가져옴
+-> 3, 5, 7번 문자를 가져온다
+
+print(a[::]) = print(a)
+
+7) 문자열 교체 (replace)
+문자열 내에서 특정 문자열을 찾아서 새 문자열로 교체
+
+문자열.replace(바꿀 문자열, 새 문자열)
+
+반드시 replace한 결과를 저장해야 교체가 수행
+
+a = "Hello World!"
+print(a.replace("World", "Python"))
+-> Hello Python!
+
+a.replace("World", "Python")
+print(a)
+-> Hello World!
+
+a = a.replace("World", "Python")
+print(a)
+-> Hello Python!
+
+8) 문자들을 특정 문자들로 교체 (translate)
+
+번역에 대한 테이블(표)를 미리 만들어야 함
+테이블 = str.maketrans(바꿀 문자들, 새 문자들)
+문자열.translate(테이블)
+
+table = str.maketrans("abc", "123")
+a = "apple babana crown"
+print(a.translate(table))
+-> 1pple 2121n1 3rown
+
+print(a)
+-> apple babana crown
+
+a = a.translate(table)
+print(a)
+-> 1pple 2121n1 3rown
+
+9) 문자 분리하기 (split)
+
+문자열.split() -> 문자열이 잘린 리스트
+print("apple,grape,banana".split(','))
+-> 
+
+10) 문자열 리스트 합치기 (join)
+
+구분자.join(문자열 리스트)
+
+
+11) 대소문자 바꾸기
+
+문자열.upper() -> 전부 대문자로
+문자열.lower() -> 전부 소문자로
+문자열.swapcase() -> 대소문자로 서로 바꾸기
+
+12) 앞뒤 공백 제거 (strip, lstrip, rstrip)
+
+문자열.strip() -> 양쪽 공백 제거
+문자열.lstrip() -> 왼쪽 공백 제거
+문자열.rstrip() -> 오른쪽 공백 제거
+
+문자열.strip('a') -> 양쪽 a 제거
+
+13) 정렬하기 (just)
+
+몇 칸 기준으로 정렬해라
+
+문자열.ljust(칸수) -> 특정 칸 수 만큼 왼쪽 정렬
+문자열.rjust(칸수) -> 특정 칸 수 만큼 오른쪽 정렬
+문자열.center(칸수) -> 특정 칸 수를 기준으로 가운데 정렬
+정렬 (칸 수가 홀수면 앞에 더 줌)
+
+14) 0으로 채우기 (zero fill -> zfill)
+
+문자열.zfill(칸수) -> 특정 칸 수 만큼 나오도록 0을 채운다
+
+just, zfill 모두 지정한 칸 수가 문자열의 길이보다 작을 경우 문자열이 그냥 그대로 나옴
+
+15) 찾기 함수 (find, rfind)
+
+문자열에서 특정 문자열 찾아서 그 위치(인덱스번호) 반환
+
+find 함수는 처음 등장하는 인덱스번호
+rfind 함수는 마지막으로 등장하는 인덱스번호
+
+두 함수 다 찾는게 없으면 에러가 아니라 -1이 반환됨
+
+16) 찾기 함수 (index, rindex)
+
+index, rindex는 기본적으로 find, rfind와 동일하지만
+*찾는게 없으면 에러가 나온다*
+
+17) 개수 세기 함수 count
+
+
+
+4. 서식 지정자 (format specifier)
+
+문자열에 서식(포맷)을 만들어서 틀로서 작동하게 하는
+-> 문자열 포매팅 (string formatting)
+
+정수 포맷
+-> 10진수 decimal ->%d
+-> %nd -> n칸 기준 오른쪽 정렬
+-> %-nd -> n칸 기준 왼쪽 정렬
+
+실무 포맷
+-> floating point -> %f
+-> 기본적으로 소수점 6자리로 고정
+    %.nf -> 소수점 n자리로 출력해라
+    %m.nf -> m칸 기준 오른쪽 정렬 + 소수점 n자리
+    %-m.nf -> m칸 기준 왼쪽 정렬 + 소수점 n자리
+
+문자열 포맷
+-> string -> %s
+-> %ns -> n칸 기준 오른쪽 정렬
+-> %-ns -> n칸 기준 왼쪽 정렬
+
+포매팅의 사용방법
+" ~~~~~%d~~~~" %변수
+"~~~~~~~ %d %s" %(변수1, 변수2)
+
+
+
+5. format 메소드 사용
+
+문자열 내에 {인덱스번호} 를 작성하고
+문자열이 끝나고 나서 .format(변수0, 변수1, ..)
+해당하는 인덱스 번호에 변수가 대입된다.
+
+{}안에 인덱스 번호를 지정하지 않으면 순서대로 0, 1, 2, ...가 지정됨
+
+인덱스 번호 대신 이름을 지정하여 넣을수 있음
+
+f-string 사용
+
+f"{변수명} {변수명}"
+
+format string을 사용하면서 중괄호를 출력하기 위해서는 중괄호를 2번 쓰면 된다.
+
+print("{{{0}}}".format("Python"))
+-> {Python}
+
+format 사용하면서 정렬하기
+:<10 -> 왼쪽 정력 10칸
+print("{0:<10}".format("Python)+"!")
+:>10 -> 오른쪽 정렬 10칸
+
+format 사용하면서 앞에 0 채우기
+"%0nd" % 수 -> n칸 기준 오른쪽 정렬하면서 앞에 0채우기
+"{0:0nd}".format(수)
+
+"%0m.nf" % 수
+"{0:0m.nf}".format(수)
+
+"{0:*>8}".format(값)
+-> 8칸 기준 오른쪽 정렬을 하되, 남는 칸은 *로 채워라
+
+00000034.000 만들기
+34- > tlftn -> 소수점 3자리 -> 오른쪽으로 -> 앞에 0 6개
+print("{0:>012.3f}".format(34))
+print("{0:0>12.3f}".format(34))
+
+천단위 구분 쉼표
+format(수, ',')
+{0:,}.format(수)
+
+1,000,000,000
+
+1,234,5678,901
