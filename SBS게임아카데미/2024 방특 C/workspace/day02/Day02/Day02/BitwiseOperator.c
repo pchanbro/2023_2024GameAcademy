@@ -1,6 +1,6 @@
 // 비트 연산
 #pragma warning(disable:4996)
-#define _CRT_SECURE_WANINIGS
+#define _CRT_SECURE_WARNINGS
 #include <stdio.h>
 #include <stdbool.h>
 
