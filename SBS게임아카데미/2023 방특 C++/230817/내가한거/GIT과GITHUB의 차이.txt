@@ -1,0 +1,9 @@
+GIT - > 코드를 관리해주는 프로그램
+GITHUB -> 저장소(클라우드)
+
+GIT은 검색해보면 많이 나옴
+
+GITHUB DESKTOP -> GIT을 편하게 쓸 수 있는 도구 (이름은GITHUB지만 실제론 GIT을 쉽게 다루도록 만들어진 프로그램임)
+
+구글에
+cpp gitignore default를 검색해서 git을 보기 좋게 만들어줌?
