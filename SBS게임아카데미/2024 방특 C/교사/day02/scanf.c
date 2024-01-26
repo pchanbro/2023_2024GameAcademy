@@ -1,0 +1,20 @@
+#pragma warning(disable:4996)
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void) 
+{
+	int a;
+	scanf("%d", &a);
+	printf("%d\n", a);
+	
+	double b;
+	scanf("%lf", &b);
+	printf("%lf\n", b);
+
+	char c;
+	scanf("%c", &c);
+	printf("%c %d\n", c, c);
+
+	return 0;
+}

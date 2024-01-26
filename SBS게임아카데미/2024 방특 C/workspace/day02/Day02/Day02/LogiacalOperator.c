@@ -18,7 +18,7 @@ int main()
 
 	printf("%d\n", (a++ >= b) || (10 < a) && !(++a == b--)); // 1
 	printf("%d\n", (10 >= 11) || (10 < 11) && !(12 == 11)); // 1
-	printf("%d\n", false || true && true)); // 1
+	printf("%d\n", false || true && true); // 1
 
 	return 0;
 }
