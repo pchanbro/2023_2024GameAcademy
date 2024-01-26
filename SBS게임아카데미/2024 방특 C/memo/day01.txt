@@ -1,0 +1,266 @@
+day01
+
+1. OT
+김류빈 강사, sbsrbkim@gmail.com
+	제목: C언어 홍길동입니다.
+	본문: 코드의 전부, 오류가 발생한 스크린샷
+
+구글 클래스룸
+크롬 -> 구글 로그인 -> 구글 클래스룸 -> 오른쪽 위 +
+수업 코드 입력: kadqax4
+
+
+2. 프로그래밍 언어
+- 사람(자연어) - 컴퓨터(이진수) 간의 언어 매개체
+- 사람이 컴퓨터에게 작업을 지시하기 위한 언어
+* 고급언어(High-Level) : 사람이 인식할 수 있는 문자 (C언어, Java, Python)
+* 저급언어(Low-Level) : 2진수를 단어로 표현한 것 (Assembly어)
+* 기계어(Machine) : 2진수
+
+3. C언어
+최초의 운영체제 UNIX 운영체제 -> C언어: 데니스 리치
+- 하드웨어를 효율적으로 통제하고, 빠르게 작동
+
+- 절차지향 프로그래밍 언어: 절차있게 수행되는 프로그램 (위에서부터 아래로)
+(vs. 객체지향 프로그래밍 언어, 함수지향 프로그래밍 언어)
+- 이식성이 좋다: 컴파일 과정을 통해서 어느 시스템에서든 사용 가능
+- 성능이 좋다: 최근에 나온 언어에 비해서 상대적으로 크기가 작고 가벼운 성능을 보이고, 하드웨어를 통제하기 쉽다
+
+C vs. C++
+C -> 절차지향 vs. C++ -> 객체지향
+- C언어: 함수를 중심으로 데이터를 처리
+- C++: 객체를 중심으로 데이터를 처리 -> 함수가 처리하면서 기능을 수행
+
+C언어
+- 운영체제: Windows, UNIX, Linux
+  Android (Java -> Kotlin), iOS (C언어 -> C++ -> Swift)
+- 임베디드: 아두이노, 드론, 로봇, 냉장고, 밥솥
+- 게임: 유니티(C#), 언리얼(C++), 네트워크
+- 프로그래밍 언어: C++, C#, Java  <---->  Python
+- 운영체제 상에 올린 앱
+
+- 코딩테스트: [[C/C++]] vs. Java/Python (자료구조/알고리즘)
+
+
+4. Visual Studio
+Visual Studio Code는 다른 프로그램 (고급 메모장)
+
+visual studio 검색을 해서 MS 사이트 -> 다운로드 -> 버전 2019/2022
+-> Community 버전으로 설치 -> C++을 이용한 데스크톱 개발 체크
+
+새 프로젝트 만들기 -> 빈 프로젝트 만들기 -> 위치 설정, 프로젝트 이름 설정 -> 만들기
+
+솔루션 탐색기(보기 > 솔루션 탐색기) -> 프로젝트 폴더 내부의 소스 파일을 우클릭 -> 추가 -> 새 항목 -> C++ 파일 버튼 선택 -> 파일명에서 확장자를 .cpp(.cc)에서 .c로 변경
+
+리소스(자원) 파일
+- 사용할 자원들 (사진, 텍스트 파일 등등)
+소스 파일
+- C언어 파일
+헤더 파일
+- .h <- 헤더 파일의 확장자
+- 미리 정의(작성)되어있는 파일들
+
+
+5. 프로그램 사이클
+
+1) 코드를 개념적 설계한다
+2) 코드를 작성한다 (.c)
+3) 코드를 컴파일한다 (컴파일 + .obj)
+4) 에러발생 -> 코드를 수정 (디버깅과정) --> 2)
+5) 실행파일이 생성 (.exe)
+6) 실행파일을 실행
+
+<컴파일 & 링킹 과정>
+main.c  --(전처리 과정)--> 전처리 후 코드 --(컴파일)-->
+(원시파일)                            원시코드->이진코드
+
+main.obj --(링크)--> main.exe
+(목적파일)  리소스파일  (실행파일)
+           헤더파일
+           소스파일
+
+main1.c --컴파일--> main1.obj +
+main2.c --컴파일--> main2.obj +---(링크)---> main.exe
+main3.c --컴파일--> main3.obj +
+              시스템 라이브러리 +
+
+6. C언어 프로그램의 기본 구성
+
+모든 프로그래밍 언어는 main 함수라는 스타팅 포인트(starting point)에서 시작
+int main(void)  ->  IDE에서 코드 작성할 때
+int main(int argc, char *argv[])
+         -> argument count
+         -> argument values
+main 함수에서 시작한다 -> 주함수
+
+#include <stdio.h> -> 헤더파일을 추가하는 과정
+stdio.h: standard Input/Output 표준 입력 출력에 대한 함수를 담고있는 표준 라이브러리
+printf 표준함수를 사용하기 위해서는 stdio.h 표준 라이브러리를 포함시켜야 한다
+
+(출력형태)
+반환형태	함수이름	입력형태(매개변수)
+int	main	(void)
+{  -> 함수의 기능을 감싼다
+	코드; -> 세미콜론이 있어야지만 한 문장이 끝났다
+	printf("Hello World!"); -> 표준 함수 (standard function)
+				-> 표준 라이브러리 (std library)
+	return 0; -> 0 리턴 시 정상적으로 프로그램이 종료되었다
+			함수의 반환 값
+}
+
+
+헤더파일(header file)
+- # 항상 붙여야 함 (전처리기)
+- 소스코드를 컴파일 하기 전에 먼저 수행한다
+
+https://cplusplus.com/
+-> C언어와 C++언어의 모든 표준 함수에 대한 설명
+
+
+7. 식별자 규칙
+
+1) 영어대소문자, 숫자, 언더바(_), 한글X
+2) 첫 글자는 무조건 영문자 또는 언더바(_) (숫자로 시작X)
+3) 대소문자 구별 (a, A 는 다른 것)
+4) 예약어는 불가능 (C언어에서 이미 사용되고 있는 단어들)
+ANSI C언어에 대한 표준 예약어
+- 데이터형: int, void, char, short, long, float, const, static, ...
+- 반복문: for, while, do
+- 선택문: if, else, switch, case, default
+- 분기문: break, continue, return, goto
+
+
+8. 주석문 (Comment)
+- 프로그램에 작성한 설명
+
+- 한 줄 주석:  // 주석
+- 여러 줄 주석:  /* 주석 */
+
+- 주석은 컴파일러가 무시 -> 실행이 안됨 -> 프로그램을 설명하기 위한 용도
+- 협업 할 때 도움이 되는 글
+
+- 프로젝트명 + 파일명
+- 작성자, 깃허브닉네임, 이메일
+- 최초작성일, 최근수정일 (+ 버전)
+- 기능
+
+
+9. 입출력
+
+콘솔(Console) 입출력
+입력 -> 키보드, 출력 -> 콘솔
+
+표준 스트림 (standard stream)
+- 운영체제를 통해서 자동으로 생성, 관리
+- 프로그램이 실행되면 자동으로 표준 스트림이 생성, 종료시 자동으로 소멸
+
+- stdin (standard input): 표준 입력 스트림 -> 키보드
+- stdout (standard output): 표준 출력 스트림 -> 콘솔
+- stderr (standard error): 표준 에러 스트림 -> 콘솔
+  (운영체제에 로그가 남음, IDE에 따라서 붉은색으로 글씨 표현)
+  (IntelliJ 사의 CLion IDE -> 콘솔 내장)
+
+
+10. stdio 라이브러리 함수
+- 표준 스트림을 사용하기 위해서는 입출력 관련 함수를 호출
+#include <stdio.h>
+- printf: print format: 형식화된 출력
+- scanf: scan format: 형식화된 입력
+- putchar: put character: 문자 1개 출력
+- getchar: get character: 문자 1개 입력
+- puts: put string: 문자열 출력
+- gets: get string: 문자열 입력 (보안상의 이유로 X C11, C++14)
+-> fgets: file get string: 파일 스트림을 이용해 표준 스트림으로 포장 문자열 입력
+
+
+11. putchar(), puts() 함수
+
+putchar() 함수: put character (문자를 출력한다)
+putchar(문자) -> putchar('A');
+** 작은따옴표 ** 로 감싸서 출력
+
+puts() 함수: put string (문자열을 출력한다)
+puts(문자열) -> puts("Hello C");
+** 큰따옴표 ** 로 감싸서 출력
+
+
+12. 제어 문자 (escape character)
+\n -> 줄바꿈 (new line)
+\r -> 캐리지 리턴 (carriage return)
+\t -> 탭 문자 (horizontal tab)
+\b -> 백스페이스 (backspace)
+\a -> 알람 (alarm)
+\0 -> 널 문자 (null character)
+\' -> 작은 따옴표
+\" -> 큰 따옴표
+\\ -> 백슬래시 1개
+
+
+13. printf 함수
+
+printf(출력형식, 값1, 값2, ...);
+
+데이터의 형태에 따라서 어떻게 출력할지를 결정 -> 서식지정자 (format specifier)
+
+
+자료형
+- 정수: short, int, long
+- 실수: float (부동소수점 floating point), double
+- 문자: char
+- (논리): bool -> stdbool.h include해야 사용 가능
+
+정수형 서식지정자
+-> 10진수 decimal -> "%d" ****
+-> 정수 integer -> "%i"
+-> long int / long long int / long long -> "%ld", "%lld", "%ll"
+-> 8진수 octal -> "%o" (파이썬 0o12, 자바+C언어 012)
+-> 16진수 hexadecimal -> "%x", "%X"
+-> 부호가 없는 정수 unsigned -> "%u"
+-> 주소를 표현 pointer -> "%p"
+
+실수형 서식지정자
+-> 실수 float -> "%f"
+-> double (= long float) -> "%lf"
+-> exponential (scientific) notation (과학표기법) -> "%e", "%E"
+-> e랑 f 중에 더 짧은 표현 -> "%g", "%G"
+-> 16진수 실수 hexadeciaml -> "%a", "%A"
+
+문자형 서식지정자
+-> character -> "%c"
+-> 문자열 string -> "%s"
+
+%를 출력하기 위해서는 -> "%%"
+printf
+"%" -> 출력X
+"%%" -> 1개
+
+putchar
+'%', '%%', '%%%' -> 1개
+
+puts
+"%" -> 1개
+"%%" -> 2개
+
+
+14. getchar(), gets() 함수
+
+입력 함수는 키보드로부터 표준 입력을 받아서 변수에 전달
+
+int c = getchar();
+입력한 문자의 ASCII(미국표준교환코드) 코드를 반환 (-128~127)
+'0' -> 48 / 'A' -> 65 / 'a' -> 97
+
+Python + Java -> Unicode -> '가' -> 44032
+(8 -> -32768 ~ 32767, 16 -> -2147483648 ~ 2147483647)
+-> Unicode Transmission Format 8
+
+char name[8];
+gets(문자열);
+     0 1 2 3 4 5 6 7
+name j a m e s 0 쓰레기값
+
+fgets(문자열, sizeof(문자열), stdin);
+
+
+
+
