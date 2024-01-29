@@ -48,5 +48,11 @@
     <ClCompile Include="prac-06-02.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="sphere.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="msb.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
