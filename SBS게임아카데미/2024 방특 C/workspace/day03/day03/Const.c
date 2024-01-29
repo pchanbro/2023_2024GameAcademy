@@ -18,11 +18,12 @@ int main()
 
 	printf("사람의 수 = %d\n", PERSONS);
 
-	{
+	{ // 스코프 scope
 		const int a = 10;
 		printf("%d\n", a);
 	}
 	// printf("%d\n", a); const int a 는 위의 블록 안에서만 사용 가능하기 때문에 여기서 출력하면 오류 발생
+
 
 
 	return 0;
