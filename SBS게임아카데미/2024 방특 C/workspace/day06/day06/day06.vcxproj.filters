@@ -54,5 +54,11 @@
     <ClCompile Include="prime.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="mathf.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="divisor.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
