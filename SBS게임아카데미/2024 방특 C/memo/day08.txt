@@ -1,0 +1,109 @@
+day08
+
+1. 함수의 인자 전달
+
+Call By Value
+- 함수 호출 시 단순히 값을 전달하는 형태
+- 인자의 값은 매개변수에 복사됨
+  => main 스코프의 변수와 함수 스코프의 변수는 다른 변수
+
+Call By Reference
+- 함수 호출 시 주소 값을 전달하는 형태
+- 주소를 넘기면 전부 레퍼런스 형태
+  => main 스코프의 변수가 가리키는 값과
+     함수 스코프의 변수가 가리키는 값은 같은 메모리
+
+
+2. 포인터의 포인터 (더블 포인터, double pointer)
+- 포인터는 주소를 저장하는 변수
+
+int a = 10;
+int* p = &a;
+int** q = &p;
+
+
+3. 함수 포인터 (function pointer)
+- 변수와 마찬가지로 함수도 메모리 상에 저장되어서 호출
+- 메모리 상에 저장된 함수의 주소를 저장한 변수가 함수 포인터
+
+int f(int n) {}
+int (*fp)(int);
+-> 함수를 함수의 매개변수로 넘기기 위해서 
+
+
+4. 문자열 처리 함수
+dest : destination : 목적지
+src : source : 시작점
+- #include <string.h>
+
+문자열 복사: strcpy(dest, src) 
+-> string copy의 줄임말
+-> src에서 dest로 복사
+
+문자열 추가: strcat(dest, src)
+-> string concatenate의 줄임말
+-> dest 뒤에 src를 추가
+
+문자열 길이: strlen(str)
+-> string length의 줄임말
+-> str의 길이
+
+문자열 비교: strcmp(str1, str2)
+-> string compare의 줄임말
+-> str1과 str2를 비교 특정 수를 내놓음
+
+NULL <- 문자열 상수 (=0, '\0')
+
+char a[10] = "";
+char b[10] = "hello";
+
+  [0]  [1]  [2]  [3]  [4]  [5]
+a NULL
+b 'h'  'e'  'l'  'l'  'o'  NULL = 0 = '\0'
+
+1) strlen -> size_t strlen ( const char * str );
+size_t = 크기와 관련된 타입 (unsigned int와 동일)
+const char * str = 크기가 정해진 문자 포인터 (= 문자 배열)
+
+문자열의 끝은 NULL로 판단하기 때문에 NULL 앞까지의 길이를 잰다 
+
+
+2) strcpy
+strcpy -> 보안에 취약하기 때문에 사용을 덜 함
+strncpy -> 시작지점으로부터 몇 개를 복사할지를 추가로 지정
+strncpy는 크기를 추가로 인자로 받아 몇 개를 복사할지 지정한다.
+
+3) strcat
+strcat, strncat
+
+strncpy vs. strncat
+배열에 대한 칸을 넘겼을 때
+strncpy -> 쓰레기 값까지 전부 출력
+strncat -> 무조건 맨 뒤에 NULL 문자를 추가 -> 쓰레기 값이 출력이 안됨
+
+
+4) strcmp
+strcmp -> 통째로 비교
+strncmp -> 앞 몇 자 비교
+
+비교에서 크다 = 알파벳 순서에서 뒤에 나온다
+
+str1 == str2 -> 0 반환
+str1 > str2 -> 양수 반환
+str1 < str2 -> 음수 반환
+
+"울" -> c6b8
+"천" -> cc9c
+
+
+5) atoi, atof, atoll
+
+array to integer
+array to double
+array to long long
+
+
+
+
+
+

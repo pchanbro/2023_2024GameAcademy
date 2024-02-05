@@ -39,5 +39,11 @@
     <ClCompile Include="prac-03-03.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="comma.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="dpointer.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
