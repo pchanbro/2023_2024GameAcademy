@@ -10,7 +10,7 @@ int main()
 	printf("배열 값 입력 >>> ");
 	for (int i = 0; i < 5; i++)
 	{
-		scanf("%lf", &num[i]);
+		scanf("%lf", &num[i]); // 여기서 %f로 받으면 이상한 값이 출력됨
 	}
 
 	reversePrintArr(num);
@@ -23,6 +23,6 @@ void reversePrintArr(double num[])
 	printf("거꾸로 출력 하면");
 	for (int i = 4; i >= 0; i--)
 	{
-		printf("%.2lf ", num[i]);
+		printf("%.2f ", num[i]);
 	}
 }
